@@ -28,7 +28,7 @@
 
 запрос имеет вид  
 ```
-SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
+SELECT district FROM address WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 ```
  ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image1.jpg)
 
@@ -125,6 +125,7 @@ WHERE active = 1 AND (first_name LIKE 'Kelly' OR first_name LIKE 'Willie');
 Выведите Email каждого покупателя, разделив значение Email на две отдельных колонки: в первой колонке должно быть значение, указанное до @, во второй — значение, указанное после @.
 
 ## Решение 5
+
 
 ## Задание 6* 
 
