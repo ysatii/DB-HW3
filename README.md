@@ -125,7 +125,8 @@ WHERE active = 1 AND (first_name LIKE 'Kelly' OR first_name LIKE 'Willie');
 Выведите Email каждого покупателя, разделив значение Email на две отдельных колонки: в первой колонке должно быть значение, указанное до @, во второй — значение, указанное после @.
 
 ## Решение 5
-
+select email, POSITION('@' IN email) as position, left(email, POSITION('@' IN email)-1) as name, right(email, length(email)-POSITION('@' IN email) ) as domain from customer
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image5.jpg)
 
 ## Задание 6* 
 
