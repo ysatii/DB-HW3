@@ -60,6 +60,40 @@ SELECT payment_id, amount, CAST(payment_date AS DATE) FROM payment WHERE payment
 Получите последние пять аренд фильмов.
 
 ## Решение 3
+Нам понадобиться таблица **rental** поле **return_date**  
+Вариант первый выберем все поля послед  TOP 5  
+```
+SELECT * FROM rental ORDER BY rental_id desc LIMIT 5;
+```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image3.jpg)
+
+Вариант 2 
+узнаем названия популярных фильмой и приведем все поля DATETIME к DATE,
+ выведем название и описание фильмой, такая информация будет более полезна для статистики  
+ ```
+SELECT rental_id, cast(rental_date AS DATE) as rental_date, cast(return_date AS DATE) AS return_date, rental.inventory_id , f.title, f.description FROM rental 
+JOIN inventory i ON i.inventory_id = rental.inventory_id 
+join film f on f.film_id = i.film_id
+ORDER BY rental_id  desc LIMIT 5;
+```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image3_1.jpg)
+
+
+можем перепроверить информацию выведенную запросом
+inventory информация о DVD-дисках, доступных для проката.
+определим id всем фильмов
+```
+select * from inventory where inventory_id in (2666, 2019, 2088, 4364, 772)
+```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image3_2.jpg)
+
+
+film – информация о фильмах, доступных для проката.
+получим информацию о фильмах согласно их ид
+```
+select * from film where film_id in (168,439,452,585,951)
+```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image3_3.jpg)
 
 ## Задание 4
 Одним запросом получите активных покупателей, имена которых Kelly или Willie.
