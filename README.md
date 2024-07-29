@@ -126,7 +126,10 @@ WHERE active = 1 AND (first_name LIKE 'Kelly' OR first_name LIKE 'Willie');
 
 ## Решение 5
 select email, POSITION('@' IN email) as position, left(email, POSITION('@' IN email)-1) as name, right(email, length(email)-POSITION('@' IN email) ) as domain from customer
- ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image5.jpg)
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image5.jpg)  
+ POSITION('@' IN email) as position  - позиция @ в поле  
+left(email, POSITION('@' IN email)-1) as name - вырезаем влево все что отстоит от знака @  
+right(email, length(email)-POSITION('@' IN email) ) as domain  - вырезаем все в право от знака @, общая длина length(email) минус POSITION('@' IN email) позици @ в выражении  
 
 ## Задание 6* 
 
