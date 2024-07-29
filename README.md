@@ -30,10 +30,13 @@
 ```
 SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 ```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image1.jpg)
+
 для получения уникальных значений нужно добавить DISTINCT в запрос  
 ```
 SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 ```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image1_1.jpg)
 
 ## Задание 2
 Получите из таблицы платежей за прокат фильмов информацию по платежам, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 года включительно и стоимость которых превышает 10.00.
