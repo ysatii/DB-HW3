@@ -136,3 +136,10 @@ right(email, length(email)-POSITION('@' IN email) ) as domain  - вырезае�
 Доработайте запрос из предыдущего задания, скорректируйте значения в новых колонках: первая буква должна быть заглавной, остальные — строчными.
 
 ## Решение 6
+```
+select email, POSITION('@' IN email) as position, left(email, POSITION('@' IN email)-1) as name, right(email, length(email)-POSITION('@' IN email) ) as domain,
+CONCAT((UPPER(left(left(email, POSITION('@' IN email)-1),1))),(lower((RIGHT((left(email, POSITION('@' IN email)-1) ),LENGTH(left(email, POSITION('@' IN email)-1))-1))))) as name2,
+concat((UPPER(left(right(email, length(email)-POSITION('@' IN email)),1))),(right(right(email, length(email)-POSITION('@' IN email)), length(right(email, length(email)-POSITION('@' IN email) ))-1))) domain2
+from customer 
+```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image6.jpg)  
