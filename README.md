@@ -61,13 +61,14 @@ SELECT payment_id, amount, CAST(payment_date AS DATE) FROM payment WHERE payment
 
 ## Решение 3
 Нам понадобиться таблица **rental** поле **return_date**  
-Вариант первый выберем все поля послед  TOP 5  
+Вариант 1  
+ выберем все поля послед  TOP 5  
 ```
 SELECT * FROM rental ORDER BY rental_id desc LIMIT 5;
 ```
  ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image3.jpg)
 
-Вариант 2 
+Вариант 2  
 узнаем названия популярных фильмой и приведем все поля DATETIME к DATE,
  выведем название и описание фильмой, такая информация будет более полезна для статистики  
  ```
@@ -96,7 +97,7 @@ select * from film where film_id in (168,439,452,585,951)
  ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image3_3.jpg)
 
 ## Задание 4
-Одним запросом получите активных покупателей, имена которых Kelly или Willie.
+Одним запросом получите активных покупателей, имена которых **Kelly** или **Willie**.
 
 Сформируйте вывод в результат таким образом:
 
@@ -104,6 +105,20 @@ select * from film where film_id in (168,439,452,585,951)
    - замените буквы 'll' в именах на 'pp'.
 
 ## Решение 4
+Нам понадобиться таблица **customer** поля **first_name** - имя и **last_name** - фамилия  
+получим всех нужных пользователей  
+```
+SELECT first_name AS Имя, last_name AS Фамилия FROM customer
+WHERE active = 1 AND (first_name LIKE 'Kelly' OR first_name LIKE 'Willie');
+```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image4.jpg)
+
+применим все условия задания
+```
+SELECT LOWER(REPLACE(first_name, 'LL', 'PP')) AS Имя, LOWER(last_name) AS Фамилия FROM customer
+WHERE active = 1 AND (first_name LIKE 'Kelly' OR first_name LIKE 'Willie');
+```
+ ![alt text](https://github.com/ysatii/DB-HW3/blob/main/img/image4_1.jpg)
 
 ## Задание 5*
 
